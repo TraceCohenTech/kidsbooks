@@ -54,7 +54,6 @@
         return { story, imageDataUrl };
     }
 
-    // Example usage
     function createComic() {
         const prompt = "Create a simple comic about animals";
         const { story, imageDataUrl } = generateComic(prompt);
@@ -68,7 +67,6 @@
         imageElement.src = imageDataUrl;
     }
 
-    // Call this function when the page loads
     window.onload = createComic;
     </script>
 </body>
