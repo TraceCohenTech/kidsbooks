@@ -1,0 +1,32 @@
+import random
+from PIL import Image, ImageDraw, ImageFont
+
+def generate_comic(prompt):
+    # List of simple words and objects
+    words = ["cat", "dog", "ball", "sun", "tree", "car", "bird", "fish"]
+    colors = ["red", "blue", "green", "pink", "gold", "brown"]
+    
+    # Generate a simple story
+    story = f"A {random.choice(colors)} {random.choice(words)} sees a {random.choice(words)}."
+    
+    # Create a blank image
+    img = Image.new('RGB', (800, 600), color='white')
+    draw = ImageDraw.Draw(img)
+    
+    # Draw simple shapes for the story
+    draw.rectangle([100, 100, 300, 300], fill=random.choice(colors))
+    draw.ellipse([400, 200, 600, 400], fill=random.choice(colors))
+    
+    # Add text
+    font = ImageFont.truetype("Arial.ttf", 36)
+    draw.text((50, 500), story, fill="black", font=font)
+    
+    # Save the image
+    img.save("comic_page.png")
+    
+    return story
+
+# Example usage
+prompt = "Create a simple comic about animals"
+story = generate_comic(prompt)
+print(f"Generated story: {story}")
